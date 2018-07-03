@@ -64,8 +64,20 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         return mTweets.size();
     }
 
-    // create ViewHolder class
+    // might not need these next two methods in the end
+    // clear all elements in the recycler
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
 
+    // add all the new elements back in
+    public void addAll(List<Tweet> newTweets) {
+        mTweets.addAll(newTweets);
+        notifyDataSetChanged();
+    }
+
+    // create ViewHolder class
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView ivProfPic;
         public TextView tvUsername;

@@ -2,17 +2,22 @@ package com.codepath.apps.restclienttemplate.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+@Parcel
 public class Tweet {
     public String body;
     public long uid; //database id for the tweet
     public String createdAt; // tweet time
     public User user;
+
+
+    public Tweet() {}
 
     // deserialize JSON
     public static Tweet fromJSON(JSONObject object) throws JSONException {

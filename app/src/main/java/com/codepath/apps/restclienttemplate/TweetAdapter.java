@@ -13,6 +13,8 @@ import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
 
     // pass in Tweets array in the constructor
@@ -53,6 +55,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         // load in profile picture with Glide
         GlideApp.with(context)
                 .load(tweet.user.profileImageUrl)
+                .transform(new RoundedCornersTransformation(15, 0))
                 .into(holder.ivProfPic);
     }
 

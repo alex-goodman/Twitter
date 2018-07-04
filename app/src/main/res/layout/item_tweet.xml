@@ -22,16 +22,17 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_toEndOf="@+id/ivProfPic"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/tvBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvUsername"
         android:layout_alignStart="@+id/tvUsername"
-        android:layout_centerVertical="true"
-        android:text="TextView" />
+        android:layout_below="@+id/tvUsername"
+        android:text="TextView"
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/tvScreenName"
@@ -40,7 +41,16 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/tvUsername"
         android:layout_marginLeft="3dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@android:color/white"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="#c0c0c0" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -49,5 +59,15 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_toEndOf="@+id/tvScreenName"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@android:color/white"/>
+
+    <ImageView
+        android:id="@+id/reply"
+        android:layout_width="20dp"
+        android:layout_height="19dp"
+        android:layout_alignStart="@+id/tvUsername"
+        android:layout_below="@+id/tvBody"
+        app:srcCompat="@drawable/ic_reply"/>
+
 </RelativeLayout>

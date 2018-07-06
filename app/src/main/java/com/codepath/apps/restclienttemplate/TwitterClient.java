@@ -8,9 +8,6 @@ import com.github.scribejava.core.builder.api.BaseApi;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-
-
-
 /*
  * 
  * This is the object responsible for communicating with a REST API. 
@@ -53,10 +50,25 @@ public class TwitterClient extends OAuthBaseClient {
 		client.get(apiUrl, params, handler);
 	}
 
-	public void postNewTweet(String message, AsyncHttpResponseHandler handler) {
+	public void postNewTweet(String message, String replyTo, AsyncHttpResponseHandler handler) {
 		String apiUrl = getApiUrl("statuses/update.json");
 		RequestParams params = new RequestParams();
 		params.put("status", message);
+		if (replyTo != null) params.put("in_reply_to_status_id", replyTo);
+		client.post(apiUrl, params, handler);
+	}
+
+	public void favoriteTweet(String tweetId, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("favorites/create.json");
+		RequestParams params = new RequestParams();
+		params.put("id", tweetId);
+		client.post(apiUrl, params, handler);
+	}
+
+	public void retweet(String tweetId, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/retweet/");
+		RequestParams params = new RequestParams();
+		params.put("id", tweetId + ".json");
 		client.post(apiUrl, params, handler);
 	}
 

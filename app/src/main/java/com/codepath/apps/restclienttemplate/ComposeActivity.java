@@ -21,6 +21,7 @@ public class ComposeActivity extends AppCompatActivity {
 
     private EditText etCompose;
     private Button btTweet;
+    private Tweet replyTweet;
 
     TwitterClient client;
 
@@ -29,17 +30,30 @@ public class ComposeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
+        // will be null if not a reply
+        replyTweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
+
+
         client = TwitterApp.getRestClient(this);
 
         etCompose = (EditText) findViewById(R.id.etCompose);
         btTweet = (Button) findViewById(R.id.btTweet);
+
+        // if the tweet is a reply to another
+        if (replyTweet != null) {
+            String displayText = "@" + replyTweet.user.screenName + " ";
+            etCompose.setText(displayText);
+            etCompose.setSelection(displayText.length());
+        }
     }
 
     public void onSubmit(View view) {
         String newTweet = etCompose.getText().toString();
+        String replyTo = null;
+        if (replyTweet != null) replyTo = Long.toString(replyTweet.uid);
 
         // post the new tweet through and API POST request
-        client.postNewTweet(newTweet, new JsonHttpResponseHandler() {
+        client.postNewTweet(newTweet, replyTo, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {

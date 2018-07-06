@@ -52,7 +52,8 @@
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="#c0c0c0" />
+        android:layout_marginTop="10dp"
+        android:background="@color/medium_gray_50" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -66,11 +67,12 @@
 
     <ImageView
         android:id="@+id/reply"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
         android:layout_alignStart="@+id/tvUsername"
         android:layout_below="@+id/tvBody"
-        app:srcCompat="@drawable/ic_reply" />
+        app:srcCompat="@drawable/ic_reply"
+        />
 
     <ImageView
         android:id="@+id/retweet"

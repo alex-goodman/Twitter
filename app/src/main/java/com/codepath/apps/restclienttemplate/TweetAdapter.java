@@ -20,6 +20,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -84,30 +86,21 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     // create ViewHolder class
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView ivProfPic;
-        public TextView tvUsername;
-        public TextView tvBody;
-        public TextView tvScreenName;
-        public TextView tvTime;
-        public ImageView reply;
-        public ImageView fave;
-        public TextView faveCount;
-        public TextView rtCount;
-        public ImageView retweet;
+        @BindView(R.id.ivProfPic)ImageView ivProfPic;
+        @BindView(R.id.tvUsername)TextView tvUsername;
+        @BindView(R.id.tvBody)TextView tvBody;
+        @BindView(R.id.tvScreenName)TextView tvScreenName;
+        @BindView(R.id.tvTime)TextView tvTime;
+        @BindView(R.id.reply)ImageView reply;
+        @BindView(R.id.fave)ImageView fave;
+        @BindView(R.id.faveCount)TextView faveCount;
+        @BindView(R.id.rtCount)TextView rtCount;
+        @BindView(R.id.retweet)ImageView retweet;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            ivProfPic = (ImageView) itemView.findViewById(R.id.ivProfPic);
-            tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
-            tvBody = (TextView) itemView.findViewById(R.id.tvBody);
-            tvScreenName = (TextView) itemView.findViewById(R.id.tvScreenName);
-            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
-            reply = (ImageView) itemView.findViewById(R.id.reply);
-            fave = (ImageView) itemView.findViewById(R.id.fave);
-            faveCount = (TextView) itemView.findViewById(R.id.faveCount);
-            rtCount = (TextView) itemView.findViewById(R.id.rtCount);
-            retweet = (ImageView) itemView.findViewById(R.id.retweet);
+            ButterKnife.bind(this, itemView);
 
             reply.setOnClickListener(new View.OnClickListener() {
                 @Override

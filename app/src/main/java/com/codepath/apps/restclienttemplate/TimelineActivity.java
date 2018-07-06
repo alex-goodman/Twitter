@@ -20,17 +20,19 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
 
     private final int REQUEST_CODE = 20;
-    private SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.swipeContainer)SwipeRefreshLayout swipeContainer;
 
     TwitterClient client;
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
-    RecyclerView rvTweets;
+    @BindView(R.id.rvTweets)RecyclerView rvTweets;
     Tweet newTweet;
 
     @Override
@@ -42,8 +44,7 @@ public class TimelineActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_launcher_twitter_round);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        // get the swipe container
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        ButterKnife.bind(this);
 
         // set the onRefresh listener
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -60,9 +61,6 @@ public class TimelineActivity extends AppCompatActivity {
                 android.R.color.holo_red_light);
 
         client = TwitterApp.getRestClient(this);
-
-        // find the RecyclerView
-        rvTweets = findViewById(R.id.rvTweets);
 
         // init the arraylist
         tweets = new ArrayList<>();

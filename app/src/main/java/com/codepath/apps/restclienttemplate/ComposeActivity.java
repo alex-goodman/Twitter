@@ -15,13 +15,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class ComposeActivity extends AppCompatActivity {
 
-    private EditText etCompose;
-    private ImageView sendIt;
-    private Tweet replyTweet;
+    @BindView(R.id.etCompose)EditText etCompose;
+    @BindView(R.id.sendIt)ImageView sendIt;
+    Tweet replyTweet;
 
     TwitterClient client;
 
@@ -39,8 +41,7 @@ public class ComposeActivity extends AppCompatActivity {
 
         client = TwitterApp.getRestClient(this);
 
-        etCompose = (EditText) findViewById(R.id.etCompose);
-        sendIt = (ImageView) findViewById(R.id.sendIt);
+        ButterKnife.bind(this);
 
         // if the tweet is a reply to another
         if (replyTweet != null) {

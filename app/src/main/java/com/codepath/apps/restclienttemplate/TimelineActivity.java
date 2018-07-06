@@ -134,6 +134,8 @@ public class TimelineActivity extends AppCompatActivity {
         this.startActivityForResult(i, REQUEST_CODE);
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {

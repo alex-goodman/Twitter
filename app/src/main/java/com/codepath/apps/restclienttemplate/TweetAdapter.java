@@ -64,8 +64,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvBody.setText(tweet.body);
         holder.tvScreenName.setText("@" + tweet.user.screenName);
         holder.tvTime.setText(tweet.createdAt);
-        holder.faveCount.setText(tweet.faveCount);
-        holder.rtCount.setText(tweet.rtCount);
+        //holder.faveCount.setText(tweet.faveCount);
+        //holder.rtCount.setText(tweet.rtCount);
 
         // load in profile picture with Glide
         GlideApp.with(context)
@@ -115,8 +115,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
             reply = (ImageView) itemView.findViewById(R.id.reply);
             fave = (ImageView) itemView.findViewById(R.id.fave);
-            faveCount = (TextView) itemView.findViewById(R.id.faveCount);
-            rtCount = (TextView) itemView.findViewById(R.id.rtCount);
+            //faveCount = (TextView) itemView.findViewById(R.id.faveCount);
+            //rtCount = (TextView) itemView.findViewById(R.id.rtCount);
             retweet = (ImageView) itemView.findViewById(R.id.retweet);
 
             reply.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +153,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             retweet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "RT", Toast.LENGTH_SHORT);
+                    Toast.makeText(context, "RT", Toast.LENGTH_SHORT).show();
                     int position = getAdapterPosition();
                     Tweet tweet = mTweets.get(position);
                     // TODO

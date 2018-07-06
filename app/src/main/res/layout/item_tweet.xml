@@ -77,11 +77,10 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_alignBottom="@id/reply"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="100dp"
-        android:onClick="onFavorite"
+        android:layout_toRightOf="@id/reply"
         app:srcCompat="@drawable/fave" />
 
+<!--
     <TextView
         android:id="@+id/faveCount"
         android:layout_width="wrap_content"
@@ -90,16 +89,17 @@
         android:layout_marginStart="-100dp"
         android:layout_toEndOf="@+id/fave"
         android:text="TextView" />
+-->
 
     <ImageView
         android:id="@+id/retweet"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_alignBottom="@id/reply"
-        android:layout_alignEnd="@+id/tvScreenName"
-        android:layout_below="@+id/tvBody"
+        android:layout_toRightOf="@id/fave"
         app:srcCompat="@drawable/retweet" />
 
+<!--
     <TextView
         android:id="@+id/rtCount"
         android:layout_width="wrap_content"
@@ -107,5 +107,6 @@
         android:layout_below="@+id/tvBody"
         android:layout_toEndOf="@+id/tvScreenName"
         android:text="TextView" />
+-->
 
 </RelativeLayout>

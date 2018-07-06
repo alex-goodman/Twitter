@@ -18,7 +18,6 @@ public class Tweet {
     public String faveCount; // number of likes
     public String rtCount; // number of retweets
 
-
     public Tweet() {}
 
     // deserialize JSON

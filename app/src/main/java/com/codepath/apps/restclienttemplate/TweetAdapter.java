@@ -25,8 +25,6 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
 
-    final int REQUEST_CODE = 40;
-
     // pass in Tweets array in the constructor
     private static List<Tweet> mTweets;
     static Context context;
@@ -37,7 +35,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     }
 
     // for each row, inflate the layout and cache references into ViewHolder
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -53,7 +50,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
 
     // bind the values based on the position of the element
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // get the data according to position
@@ -64,8 +60,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvBody.setText(tweet.body);
         holder.tvScreenName.setText("@" + tweet.user.screenName);
         holder.tvTime.setText(tweet.createdAt);
-        //holder.faveCount.setText(tweet.faveCount);
-        //holder.rtCount.setText(tweet.rtCount);
+        holder.faveCount.setText(tweet.faveCount);
+        holder.rtCount.setText(tweet.rtCount);
 
         // load in profile picture with Glide
         GlideApp.with(context)
@@ -83,12 +79,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     // clear all elements in the recycler
     public void clear() {
         mTweets.clear();
-        notifyDataSetChanged();
-    }
-
-    // add all the new elements back in
-    public void addAll(List<Tweet> newTweets) {
-        mTweets.addAll(newTweets);
         notifyDataSetChanged();
     }
 
@@ -115,8 +105,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
             reply = (ImageView) itemView.findViewById(R.id.reply);
             fave = (ImageView) itemView.findViewById(R.id.fave);
-            //faveCount = (TextView) itemView.findViewById(R.id.faveCount);
-            //rtCount = (TextView) itemView.findViewById(R.id.rtCount);
+            faveCount = (TextView) itemView.findViewById(R.id.faveCount);
+            rtCount = (TextView) itemView.findViewById(R.id.rtCount);
             retweet = (ImageView) itemView.findViewById(R.id.retweet);
 
             reply.setOnClickListener(new View.OnClickListener() {
@@ -153,14 +143,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             retweet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "RT", Toast.LENGTH_SHORT).show();
                     int position = getAdapterPosition();
                     Tweet tweet = mTweets.get(position);
-                    // TODO
                     client.retweet(Long.toString(tweet.uid), new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Toast.makeText(context, "Retweeted", Toast.LENGTH_SHORT);
+                            Toast.makeText(context, "Retweeted", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override

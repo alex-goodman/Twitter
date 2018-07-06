@@ -73,40 +73,43 @@
         app:srcCompat="@drawable/ic_reply" />
 
     <ImageView
-        android:id="@+id/fave"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_alignBottom="@id/reply"
-        android:layout_toRightOf="@id/reply"
-        app:srcCompat="@drawable/fave" />
-
-<!--
-    <TextView
-        android:id="@+id/faveCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBody"
-        android:layout_marginStart="-100dp"
-        android:layout_toEndOf="@+id/fave"
-        android:text="TextView" />
--->
-
-    <ImageView
         android:id="@+id/retweet"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_alignBottom="@id/reply"
-        android:layout_toRightOf="@id/fave"
+        android:layout_toRightOf="@id/reply"
+        android:layout_marginLeft="70dp"
         app:srcCompat="@drawable/retweet" />
 
-<!--
     <TextView
         android:id="@+id/rtCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
-        android:layout_toEndOf="@+id/tvScreenName"
+        android:layout_toRightOf="@id/retweet"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@id/retweet"
+        android:textColor="@android:color/white"
         android:text="TextView" />
--->
+
+    <ImageView
+        android:id="@+id/fave"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignBottom="@id/rtCount"
+        android:layout_toRightOf="@id/retweet"
+        android:layout_marginLeft="70dp"
+        app:srcCompat="@drawable/fave" />
+
+    <TextView
+        android:id="@+id/faveCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBody"
+        android:layout_toRightOf="@+id/fave"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@id/fave"
+        android:textColor="@android:color/white"
+        android:text="TextView" />
 
 </RelativeLayout>

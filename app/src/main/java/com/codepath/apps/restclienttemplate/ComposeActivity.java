@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -20,7 +20,7 @@ import cz.msebera.android.httpclient.Header;
 public class ComposeActivity extends AppCompatActivity {
 
     private EditText etCompose;
-    private Button btTweet;
+    private ImageView sendIt;
     private Tweet replyTweet;
 
     TwitterClient client;
@@ -30,14 +30,17 @@ public class ComposeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher_twitter_round);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         // will be null if not a reply
         replyTweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
-
 
         client = TwitterApp.getRestClient(this);
 
         etCompose = (EditText) findViewById(R.id.etCompose);
-        btTweet = (Button) findViewById(R.id.btTweet);
+        sendIt = (ImageView) findViewById(R.id.sendIt);
 
         // if the tweet is a reply to another
         if (replyTweet != null) {

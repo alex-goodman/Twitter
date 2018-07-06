@@ -33,7 +33,6 @@ public class TimelineActivity extends AppCompatActivity {
     RecyclerView rvTweets;
     Tweet newTweet;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +81,6 @@ public class TimelineActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.timeline, menu);
         return true;
     }
-
 
     private void populateTimeline() {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
@@ -133,8 +131,6 @@ public class TimelineActivity extends AppCompatActivity {
         Intent i = new Intent(this, ComposeActivity.class);
         this.startActivityForResult(i, REQUEST_CODE);
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -10,6 +10,10 @@
 
     </style>
 
+    <style name="CounterStyle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <!-- Application theme. -->
     <style name="AppTheme" parent="MyTheme">
         <item name="android:actionBarStyle">@style/MyActionBar</item>

@@ -6,7 +6,8 @@
     </style>
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@android:color/white</item>
+        <item name="android:background">@color/twitter_blue</item>
+        
 
     </style>
 
@@ -17,7 +18,6 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="MyTheme">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-        <item name="android:titleTextColor">@android:color/white</item>
     </style>
 
 </resources>

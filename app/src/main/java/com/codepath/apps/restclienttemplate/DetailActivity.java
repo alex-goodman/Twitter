@@ -104,7 +104,7 @@ public class DetailActivity extends AppCompatActivity {
                 client.favoriteTweet(Long.toString(tweet.uid), new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(context, "Tweet favorited", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Favorited", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

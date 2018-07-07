@@ -127,13 +127,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             fave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Fave", Toast.LENGTH_SHORT).show();
                     int position = getAdapterPosition();
                     Tweet tweet = mTweets.get(position);
                     client.favoriteTweet(Long.toString(tweet.uid), new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Toast.makeText(context, "Tweet favorited", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Favorited", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
